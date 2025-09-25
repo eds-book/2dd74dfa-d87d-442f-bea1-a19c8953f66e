@@ -8,11 +8,6 @@ p3 <- list(
   ),
 
   tar_target(
-    p3_leaflet_map_html,
-    file.path('03_visualize/out',"leaflet_map.html")
-  ),
-  
-  tar_target(
     p3_hydrograph_plot_svg,
     plot_hydrographs(p2_stage_flooding_data, out_file = "03_visualize/out/hydrograph_plot.svg"),
     format = "file"
