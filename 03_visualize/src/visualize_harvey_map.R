@@ -10,6 +10,9 @@
 #'
 create_map <- function(harvey_data, site_info, out_dir, out_file) {
   
+  # define full output filepath
+  out_path <- file.path(out_dir,out_file)
+
   # color palette for hurricane track based on date
   time_colors <- colorRampPalette(brewer.pal(9, "YlGnBu"))(nrow(harvey_data)) # Adjust number of colors as needed
   harvey_data$Color <- time_colors[rank(harvey_data$Date)]
@@ -112,10 +115,7 @@ create_map <- function(harvey_data, site_info, out_dir, out_file) {
   m <- add_gage_site_legend(m, color = usgs_gage_color, label = "USGS Gage Sites", position = "bottomright")
   
   # need to use withr::with_dir to get SaveWidget to work in Binder: https://github.com/ramnathv/htmlwidgets/issues/299#issuecomment-565754320
-  # for some reason also I need to assign the output to a variable even though it is null
-  out_path_with_dir <- with_dir(out_dir,saveWidget(m, file = out_file, selfcontained = TRUE))
-
-  out_path <- file.path(out_dir,out_file)
+  with_dir(out_dir,saveWidget(m, file = out_file, selfcontained = TRUE))
 
   return(out_path)
 }
