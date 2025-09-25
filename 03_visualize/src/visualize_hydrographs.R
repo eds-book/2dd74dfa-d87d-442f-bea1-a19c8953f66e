@@ -38,6 +38,8 @@ plot_hydrographs <- function(nwis_nws_data,out_file){
     )
   
   ggsave(out_file, plot = m, width = 10, height = 8, units = "in")
+
+  print(paste0('Hydrograph plots saved to ', out_file))
   
   return(out_file)
   
