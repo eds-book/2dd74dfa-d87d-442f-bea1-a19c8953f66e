@@ -116,7 +116,7 @@ create_map <- function(harvey_data, site_info, out_dir, out_file) {
   
   # need to use withr::with_dir to get SaveWidget to work in Binder: https://github.com/ramnathv/htmlwidgets/issues/299#issuecomment-565754320
   # for some reason we need to define an output here otherwise the system will hang
-  out_path_with_dir <- with_dir(out_dir,saveWidget(m, file = out_file, selfcontained = TRUE))
+  out_path_with_dir <- with_dir(out_dir,saveWidget(m, file = out_file, selfcontained = FALSE))
 
   print(paste0('Leaflet map saved to ', out_path))
 
