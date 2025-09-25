@@ -115,7 +115,7 @@ create_map <- function(harvey_data, site_info, out_dir, out_file) {
   m <- add_gage_site_legend(m, color = usgs_gage_color, label = "USGS Gage Sites", position = "bottomright")
   
   # need to use withr::with_dir to get SaveWidget to work in Binder: https://github.com/ramnathv/htmlwidgets/issues/299#issuecomment-565754320
-  with_dir(out_dir,saveWidget(m, file = out_file, selfcontained = TRUE))
+  out_path_with_dir <- with_dir(out_dir,saveWidget(m, file = out_file, selfcontained = TRUE))
 
   print(paste0('Leaflet map saved to ', out_path))
 
