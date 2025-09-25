@@ -13,7 +13,8 @@ tar_option_set(
     'leaflet',
     'RColorBrewer',
     'htmlwidgets',
-    'tigris'
+    'tigris',
+    'withr'
   )
 )
 

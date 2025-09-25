@@ -3,11 +3,12 @@
 #'
 #' @param harvey_data An `sf` object (simple features data frame) containing the processed Hurricane Harvey track points with date/time information.
 #' @param site_info An `sf` object containing the location and names of the USGS gage sites.
-#' @param out_file A character string for the path and filename where the HTML map will be saved.
+#' @param out_dir A character string for the path where the HTML map will be saved.
+#' @param out_file A character string for the filename of the HTML map to be saved.
 #'
 #' @return A character string representing the file path to the saved HTML map.
 #'
-create_map <- function(harvey_data, site_info, out_file) {
+create_map <- function(harvey_data, site_info, out_dir, out_file) {
   
   # color palette for hurricane track based on date
   time_colors <- colorRampPalette(brewer.pal(9, "YlGnBu"))(nrow(harvey_data)) # Adjust number of colors as needed
@@ -110,7 +111,8 @@ create_map <- function(harvey_data, site_info, out_file) {
   # add custom legend for usgs gage sites
   m <- add_gage_site_legend(m, color = usgs_gage_color, label = "USGS Gage Sites", position = "bottomright")
   
-  saveWidget(m, file = out_file, selfcontained = TRUE)
+  # need to use withr::with_dir to get SaveWidget to work in Binder: https://github.com/ramnathv/htmlwidgets/issues/299#issuecomment-565754320
+  with_dir(out_dir,saveWidget(m, file = out_file, selfcontained = TRUE))
   
   return(out_file)
 }
