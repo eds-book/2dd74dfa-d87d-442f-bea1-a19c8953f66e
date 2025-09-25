@@ -120,7 +120,7 @@ create_map <- function(harvey_data, site_info, out_dir, out_file) {
 
   print(paste0('Leaflet map saved to ', out_path))
 
-  return(m)
+  return(out_path)
 }
 
 #' @title Add USGS Gage Site Legend to Leaflet Map

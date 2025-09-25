@@ -3,8 +3,9 @@ source('03_visualize/src/visualize_hydrographs.R')
 
 p3 <- list(
   tar_target(
-    p3_leaflet_map,
-    create_map(p2_harvey_pts, p1_site_info, out_dir = '03_visualize/out', out_file = "leaflet_map.html")
+    p3_leaflet_map_html,
+    create_map(p2_harvey_pts, p1_site_info, out_dir = '03_visualize/out', out_file = "leaflet_map.html"),
+    format = "file"
   ),
 
   tar_target(
