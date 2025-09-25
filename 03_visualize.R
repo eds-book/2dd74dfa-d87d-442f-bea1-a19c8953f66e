@@ -6,6 +6,11 @@ p3 <- list(
     p3_leaflet_map,
     create_map(p2_harvey_pts, p1_site_info, out_dir = '03_visualize/out', out_file = "leaflet_map.html")
   ),
+
+  tar_target(
+    p3_leaflet_map_html,
+    file.path('03_visualize/out',"leaflet_map.html")
+  ),
   
   tar_target(
     p3_hydrograph_plot_svg,
