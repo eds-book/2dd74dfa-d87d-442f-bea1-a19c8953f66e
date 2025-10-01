@@ -153,7 +153,7 @@ save_map <- function(map_object, out_dir, out_file) {
   # need to use withr::with_dir to get saveWidget to work reliably: 
   # ensures the saving operation happens relative to the output directory
   # Note: 'with_dir' requires the 'withr' package to be loaded
-  withr::with_dir(out_dir, htmlwidgets::saveWidget(map_object, file = out_file, selfcontained = TRUE))
+  with_dir(out_dir, saveWidget(map_object, file = out_file, selfcontained = FALSE))
   
   print(paste0('Leaflet map saved to ', out_path))
   
