@@ -1,36 +1,35 @@
 #' @title Create Interactive Leaflet Map of Hurricane Track and USGS Sites
-#' @description This function generates a static-view Leaflet map showing the track of Hurricane Harvey (color-coded by time) and the locations of the selected USGS gage sites with popups. It saves the resulting map as a self-contained HTML file.
+#' @description This function generates a static-view Leaflet map showing the track of Hurricane Harvey (color-coded by time) and the locations of the selected USGS gage sites with popups. It returns the Leaflet map object.
 #'
 #' @param harvey_data An `sf` object (simple features data frame) containing the processed Hurricane Harvey track points with date/time information.
 #' @param site_info An `sf` object containing the location and names of the USGS gage sites.
-#' @param out_dir A character string for the path where the HTML map will be saved.
-#' @param out_file A character string for the filename of the HTML map to be saved.
 #'
-#' @return A character string representing the file path to the saved HTML map.
+#' @return A **`leaflet` map object** that can be displayed or saved.
 #'
-create_map <- function(harvey_data, site_info, out_dir, out_file) {
+create_map <- function(harvey_data, site_info) {
   
-  # define full output filepath
-  out_path <- file.path(out_dir,out_file)
-
   # color palette for hurricane track based on date
-  time_colors <- colorRampPalette(brewer.pal(9, "YlGnBu"))(nrow(harvey_data)) # Adjust number of colors as needed
+  # Note: The 'brewer.pal' function is not available by default and should be assumed 
+  # to be available (e.g., from the 'RColorBrewer' package).
+  time_colors <- colorRampPalette(brewer.pal(9, "YlGnBu"))(nrow(harvey_data)) 
   harvey_data$Color <- time_colors[rank(harvey_data$Date)]
   # color for usgs gages
   usgs_gage_color <- "orange"
   
   # create an sf object for hurricane track and gage locations
-  harvey_sf <- st_as_sf(harvey_data, coords = c("LONG", "LAT"), crs = 4326)
+  # Note: 'st_as_sf' assumes harvey_data is already a data frame with LON/LAT
+  harvey_sf <- st_as_sf(harvey_data, coords = c("LON", "LAT"), crs = 4326)
   gage_sf <- site_info %>% mutate(
     popup=paste0("<b>Site ID: </b>", monitoring_location_id,"<br>",
                  "<b>Station Name: </b> ", monitoring_location_name
     ))
-
+  
   # load state boundaries with tigris package
   # tried to suppress messages and progress bar
   old_tigris_progress_option <- getOption("tigris_progress") # Save current option
   options(tigris_progress = FALSE)
-  states_boundaries <- suppressMessages(states(cb = TRUE, class = "sf"))
+  # Note: 'states' function requires the 'tigris' package to be loaded
+  states_boundaries <- suppressMessages(tigris::states(cb = TRUE, class = "sf"))
   options(tigris_progress = old_tigris_progress_option)
   
   # attempt to fix the initial ROI and zoom for map based on hurricane track
@@ -57,11 +56,11 @@ create_map <- function(harvey_data, site_info, out_dir, out_file) {
   m <- m %>%
     addPolygons(
       data = states_boundaries,
-      color = "#444444",       
+      color = "#444444",      
       weight = 1,              
       smoothFactor = 0.5,
       opacity = 1.0,
-      fillOpacity = 0.2,       
+      fillOpacity = 0.2,      
       fillColor = "#CCCCCC"  
     )
   
@@ -69,11 +68,11 @@ create_map <- function(harvey_data, site_info, out_dir, out_file) {
   for (i in 1:(nrow(harvey_data) - 1)) {
     m <- m %>%
       addPolylines(
-        lng = c(harvey_data$LON[i], harvey_data$LON[i+1]), # Longitude for start and end of segment
-        lat = c(harvey_data$LAT[i], harvey_data$LAT[i+1]),  # Latitude for start and end of segment
-        color = harvey_data$Color[i], # Color based on the starting point of the segment
-        weight = 10, # Increased weight for better visibility (from 6 to 10)
-        opacity = 1 # Slightly increased opacity for better visibility
+        lng = c(harvey_data$LON[i], harvey_data$LON[i+1]), 
+        lat = c(harvey_data$LAT[i], harvey_data$LAT[i+1]),  
+        color = harvey_data$Color[i], 
+        weight = 10, 
+        opacity = 1 
       )
   }
   
@@ -112,14 +111,9 @@ create_map <- function(harvey_data, site_info, out_dir, out_file) {
   )
   
   # add custom legend for usgs gage sites
+  # Note: 'add_gage_site_legend' is assumed to be defined elsewhere
   m <- add_gage_site_legend(m, color = usgs_gage_color, label = "USGS Gage Sites", position = "bottomright")
   
-  # need to use withr::with_dir to get SaveWidget to work in Binder: https://github.com/ramnathv/htmlwidgets/issues/299#issuecomment-565754320
-  # for some reason we need to define an output here otherwise the system will hang
-  out_path_with_dir <- with_dir(out_dir,saveWidget(m, file = out_file, selfcontained = FALSE))
-
-  print(paste0('Leaflet map saved to ', out_path))
-
   return(m)
 }
 
@@ -150,4 +144,28 @@ add_gage_site_legend <- function(map, color, label, position = "bottomright") {
       html = legend_content,
       position = position
     )
+}
+
+#' @title Save Interactive Leaflet Map to HTML
+#' @description This function takes a Leaflet map object and saves it as a self-contained HTML file. It uses `htmlwidgets::saveWidget` and handles the directory structure.
+#'
+#' @param map_object A **`leaflet` map object** generated by `create_map`.
+#' @param out_dir A character string for the directory path where the HTML map will be saved.
+#' @param out_file A character string for the filename of the HTML map to be saved (e.g., `"harvey_map.html"`).
+#'
+#' @return A **character string** representing the full file path to the saved HTML map.
+#'
+save_map <- function(map_object, out_dir, out_file) {
+  
+  # define full output filepath
+  out_path <- file.path(out_dir, out_file)
+  
+  # need to use withr::with_dir to get saveWidget to work reliably: 
+  # ensures the saving operation happens relative to the output directory
+  # Note: 'with_dir' requires the 'withr' package to be loaded
+  withr::with_dir(out_dir, htmlwidgets::saveWidget(map_object, file = out_file, selfcontained = TRUE))
+  
+  print(paste0('Leaflet map saved to ', out_path))
+  
+  return(out_path)
 }
