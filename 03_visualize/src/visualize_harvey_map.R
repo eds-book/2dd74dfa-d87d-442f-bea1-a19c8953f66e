@@ -38,17 +38,7 @@ create_map <- function(harvey_data, site_info) {
   initial_zoom_level <- 7
   
   # create leaflet map, set initial view and disable zoom and panning
-  m <- leaflet(options = leafletOptions(
-    zoomControl = FALSE, 
-    dragging = FALSE,    
-    touchZoom = FALSE,   
-    scrollWheelZoom = FALSE, 
-    doubleClickZoom = FALSE, 
-    boxZoom = FALSE,     
-    keyboard = FALSE,    
-    minZoom = initial_zoom_level,
-    maxZoom = initial_zoom_level
-  )) %>%
+  m <- leaflet() %>%
     addProviderTiles(providers$CartoDB.Positron) %>% 
     setView(lng = center_lon, lat = center_lat, zoom = initial_zoom_level)
   
