@@ -54,7 +54,7 @@ plot_hydrographs <- function(nwis_nws_data){
 #'
 #' @return A **character string** representing the full file path to the saved SVG hydrograph plot.
 #'
-save_hydrographs <- function(plot_object, out_dir, out_file, width = 10, height = 8, units = "in") {
+save_hydrographs <- function(plot_object, out_dir, out_file, width = 25, height = 20, units = "in") {
   
   # Combine the directory and filename to create the full output path
   out_path <- file.path(out_dir, out_file)
