@@ -1,0 +1,15 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: 2dd74dfa-d87d-442f-bea1-a19c8953f66e
+  # title:
+  # description:
+  # keywords: []
+  # authors: []
+  github: https://github.com/eds-book/2dd74dfa-d87d-442f-bea1-a19c8953f66e
+  # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
+site:
+  template: book-theme
+  # options:
+  #   favicon: favicon.ico
+  #   logo: site_logo.png
