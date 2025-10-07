@@ -7,9 +7,18 @@ project:
   # keywords: []
   # authors: []
   github: https://github.com/eds-book/2dd74dfa-d87d-442f-bea1-a19c8953f66e
+  jupyter:
+    binder:
+      repo: eds-book/dea59792-5a6d-4633-a74c-eb73edce61b8
+    kernelName: r
+  open_access: true
+  license:
+    content: CC-BY-4.0
+    code: MIT
+  #date: 2025-XX-XX
+  toc:
+    - file: README.md
+    - file: notebook.ipynb
   # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
 site:
   template: book-theme
-  # options:
-  #   favicon: favicon.ico
-  #   logo: site_logo.png
