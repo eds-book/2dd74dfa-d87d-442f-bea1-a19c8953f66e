@@ -24,13 +24,11 @@ create_map <- function(harvey_data, site_info) {
                  "<b>Station Name: </b> ", monitoring_location_name
     ))
   
-  # load state boundaries with tigris package
-  # tried to suppress messages and progress bar
-  old_tigris_progress_option <- getOption("tigris_progress") # Save current option
-  options(tigris_progress = FALSE)
-  # Note: 'states' function requires the 'tigris' package to be loaded
-  states_boundaries <- suppressMessages(tigris::states(cb = TRUE, class = "sf"))
-  options(tigris_progress = old_tigris_progress_option)
+  # get boundaries of US states and territories using rnaturalearth instead of tigris 
+  # due to issues with accessing census data during US gov't shutdown
+  states_boundaries <- ne_states(country = "United States of America", returnclass = "sf") %>%
+    # exclude territories and get only the 50 states + DC
+    subset(iso_3166_2 %in% c(paste0("US-", state.abb), "US-DC"))
   
   # attempt to fix the initial ROI and zoom for map based on hurricane track
   center_lon <- mean(harvey_data$LON)
