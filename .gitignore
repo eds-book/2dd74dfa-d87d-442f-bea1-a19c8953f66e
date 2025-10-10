@@ -25,3 +25,5 @@ _targets/
 !*.placeholder
 */tmp/*
 !*.placeholder
+# MyST build outputs
+_build

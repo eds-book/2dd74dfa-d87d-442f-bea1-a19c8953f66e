@@ -1,0 +1,8 @@
+name: 2dd74dfa-d87d-442f-bea1-a19c8953f66e
+channels:
+  - conda-forge
+  - r
+dependencies:
+  - jupyter
+  - r-irkernel # R kernel is required for running notebook
+  - r-base=4.4.2 # this was the version of R used as defined in the lockfile
