@@ -1,8 +1,6 @@
-options(repos = c(CRAN = "https://cloud.r-project.org"))
-install.packages("devtools") # added installation of this package for installing rnaturalearthhires from GH
 install.packages("tidyverse")
 install.packages("targets")
-install.packages("dataRetrieval") # this now requires curl >= 7.0.0 so I removed the curl installation
+install.packages("dataRetrieval")
 install.packages("httr2")
 install.packages("tools")
 install.packages("sf")
@@ -18,4 +16,4 @@ install.packages("pandoc")
 install.packages("visNetwork")
 install.packages("htmltools")
 install.packages("magick")
-install.packages("IRkernel")
+devtools::install_version("curl", "7.0.0")
