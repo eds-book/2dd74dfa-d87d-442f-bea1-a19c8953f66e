@@ -25,7 +25,7 @@ You may also download the notebook from GitHub to run it locally:
 
 5. Create and activate your environment from the `environment.yml` file
     ```bash
-    conda env create -f .binder/environment.yml
+    conda env create -f environment.yml
     conda activate 2dd74dfa-d87d-442f-bea1-a19c8953f66e
     R --quiet -f .binder/install.R
     ```  
