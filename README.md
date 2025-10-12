@@ -27,7 +27,7 @@ You may also download the notebook from GitHub to run it locally:
     ```bash
     conda env create -f environment.yml
     conda activate 2dd74dfa-d87d-442f-bea1-a19c8953f66e
-    R --quiet -f .binder/install.R
+    R --quiet -f install_local.R
     ```  
 
 6. Launch the jupyter interface of your preference, notebook, `jupyter notebook` or lab `jupyter lab`
