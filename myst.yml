@@ -1,5 +1,7 @@
 # See docs at: https://mystmd.org/guide/frontmatter
 version: 1
+extends:
+  - https://raw.githubusercontent.com/eds-book/edsbook-config/main/edsbook.yml
 project:
   id: 2dd74dfa-d87d-442f-bea1-a19c8953f66e
   title: Using a robust data pipelining tool in R to build a reproducible hurricane data visualization with multi-agency water data (Jupyter Notebook) published in the Environmental Data Science book
@@ -28,7 +30,7 @@ project:
         - Software
         - Visualization
       affiliations:
-        - cuasi
+        - cuahsi
   reviewers:
     - id: TBA
       name: TBA
