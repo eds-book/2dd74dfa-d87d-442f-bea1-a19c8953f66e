@@ -1,20 +1,20 @@
 # import targets library
 library(targets)
 
-# define packages needed to execute pipeline
+# define packages needed to execute pipeline; package version included for reference
 tar_option_set(
   packages = c(
-    'tidyverse',
-    'dataRetrieval',
-    'httr2',
-    'tools',
-    'sf',
-    'xml2',
-    'leaflet',
-    'RColorBrewer',
-    'htmlwidgets',
-    'rnaturalearth',
-    'withr'
+    'tidyverse',            # 2.0.0 
+    'dataRetrieval',        # 2.7.2
+    'httr2',                # 1.2.1
+    'tools',                # 4.5.1
+    'sf',                   # 1.0.21
+    'xml2',                 # 1.4.0
+    'leaflet',              # 2.2.3
+    'RColorBrewer',         # 1.1.3
+    'htmlwidgets',          # 1.6.4
+    'rnaturalearth',        # 1.1.0
+    'withr'                 # 3.0.2
   )
 )
 
