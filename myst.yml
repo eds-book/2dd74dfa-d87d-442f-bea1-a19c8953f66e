@@ -1,0 +1,87 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+extends:
+  - https://raw.githubusercontent.com/eds-book/edsbook-config/main/edsbook.yml
+project:
+  id: 2dd74dfa-d87d-442f-bea1-a19c8953f66e
+  title: Using a robust data pipelining tool in R to build a reproducible hurricane data visualization with multi-agency water data (Jupyter Notebook) published in the Environmental Data Science book
+  short_title: Reproducible hurricane data visualisation using targets (CUAHSI)
+  abstract: Notebook developed to demonstrate how use the `targets` R package to construct a reproducible data pipeline that integrates and analyzes data from diverse environmental sources to investigate flooding during Hurricane Harvey.
+  authors:
+    - id: abogan
+      name: Abner Bogan
+      orcid: 0009-0009-4882-3333
+      corresponding: true
+      email: abogan@cuahsi.org
+      github: abnerbog
+      roles:
+        - Writing - original draft
+        - Writing – review & editing
+        - Investigation
+        - Software
+        - Visualization
+      affiliations:
+        - cuahsi
+    - id: lplatt
+      name: Lindsay Platt
+      orcid: 0000-0002-5799-6297
+      email: lplatt@cuahsi.org
+      github: lindsayplatt
+      roles:
+        - Investigation
+      affiliations:
+        - cuahsi
+  reviewers:
+    - id: TBA
+      name: TBA
+      orcid: TBA
+      github: TBA
+      roles:
+        - Writing – review & editing
+      affiliations:
+        - TBA
+  editors:
+    - id: acoca
+      name: Alejandro Coca-Castro
+      orcid: 0000-0002-9264-1539
+      github: acocac
+      roles:
+        - Writing – review & editing
+      affiliations:
+        - turing
+  affiliations:
+    - id: cuahsi
+      name: CUAHSI - Consortium of Universities for the Advancement of Hydrologic Science, Inc.
+    - id: turing
+      name: The Alan Turing Institute
+      department: Environment & Sustainability
+  subject: Emissions
+  keywords:
+    - Oceans
+    - Workflows
+    - Standard
+    - R
+  venue:
+    title: Environmental Data Science Book
+    short_title: EDS Book
+    url: https://www.edsbook.org
+  issue:
+    name: Standard
+#  thumbnail: images/thumbnail.png
+  requirements:
+    - .binder/install.R
+  github: https://github.com/eds-book/2dd74dfa-d87d-442f-bea1-a19c8953f66e
+  jupyter:
+    binder:
+      repo: eds-book/2dd74dfa-d87d-442f-bea1-a19c8953f66e
+    kernelName: r
+  open_access: true
+  license:
+    content: CC-BY-4.0
+    code: MIT
+  #date: 2025-XX-XX
+  toc:
+    - file: README.md
+    - file: notebook.ipynb
+site:
+  template: book-theme
