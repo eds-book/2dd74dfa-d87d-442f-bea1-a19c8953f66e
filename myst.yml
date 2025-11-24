@@ -15,6 +15,8 @@ project:
       email: abogan@cuahsi.org
       github: abnerbog
       roles:
+        - Writing - original draft
+        - Writing – review & editing
         - Investigation
         - Software
         - Visualization
@@ -27,8 +29,6 @@ project:
       github: lindsayplatt
       roles:
         - Investigation
-        - Software
-        - Visualization
       affiliations:
         - cuahsi
   reviewers:
