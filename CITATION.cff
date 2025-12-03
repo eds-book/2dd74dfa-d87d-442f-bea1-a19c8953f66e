@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+message: Please cite the following works when using this project.
+abstract: >-
+  Notebook developed to demonstrate how use the targets R package to construct a
+  reproducible data pipeline that integrates and analyzes data from diverse
+  environmental sources to investigate flooding during Hurricane Harvey.
+title: >-
+  Using a robust data pipelining tool in R to build a reproducible hurricane
+  data visualization with multi-agency water data (Jupyter Notebook) published
+  in the Environmental Data Science book
+authors:
+  - family-names: Bogan
+    given-names: Abner
+    affiliation: >-
+      CUAHSI - Consortium of Universities for the Advancement of Hydrologic
+      Science, Inc.
+    orcid: 0009-0009-4882-3333
+    email: abogan@cuahsi.org
+  - family-names: Platt
+    given-names: Lindsay
+    affiliation: >-
+      CUAHSI - Consortium of Universities for the Advancement of Hydrologic
+      Science, Inc.
+    orcid: 0000-0002-5799-6297
+    email: lplatt@cuahsi.org
+date-released: '2025-12-08'
+contact:
+  - family-names: Bogan
+    given-names: Abner
+    affiliation: >-
+      CUAHSI - Consortium of Universities for the Advancement of Hydrologic
+      Science, Inc.
+    orcid: 0009-0009-4882-3333
+    email: abogan@cuahsi.org
+identifiers:
+  - description: Open review report for this notebook
+    type: url
+    value: https://github.com/eds-book/notebooks-reviews/issues/14
+keywords:
+  - Climate
+  - Workflows
+  - Standard
+  - R
+license: MIT
+license-url: https://opensource.org/license/MIT
+repository: https://github.com/eds-book/2dd74dfa-d87d-442f-bea1-a19c8953f66e
+type: software
+version: v2025.12.0
