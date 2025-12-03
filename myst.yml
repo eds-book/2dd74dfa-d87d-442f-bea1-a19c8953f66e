@@ -32,14 +32,29 @@ project:
       affiliations:
         - cuahsi
   reviewers:
-    - id: TBA
-      name: TBA
-      orcid: TBA
-      github: TBA
+    - id: hkropp
+      name: Heather Kropp
+      orcid: 0000-0002-4258-3393
+      github: kroppheather
       roles:
         - Writing – review & editing
       affiliations:
-        - TBA
+        - hamilton
+    - id: nquarderer
+      name: Nathan Quarderer
+      orcid: 0000-0001-6602-3174
+      github: nquarder
+      roles:
+        - Writing – review & editing
+      affiliations:
+        - colorado
+    - id: kwong
+      name: Kimberlee Wong
+      github: kimberleewong
+      roles:
+        - Writing – review & editing
+      affiliations:
+        - cuahsi
   editors:
     - id: acoca
       name: Alejandro Coca-Castro
@@ -50,14 +65,19 @@ project:
       affiliations:
         - turing
   affiliations:
+    - id: colorado
+      name: University of Colorado – Boulder
+      department: Environmental Data Science Innovation and Impact Lab
     - id: cuahsi
       name: CUAHSI - Consortium of Universities for the Advancement of Hydrologic Science, Inc.
+    - id: hamilton
+      name: Hamilton College
     - id: turing
       name: The Alan Turing Institute
       department: Environment & Sustainability
-  subject: Emissions
+  subject: Climate
   keywords:
-    - Oceans
+    - Climate
     - Workflows
     - Standard
     - R
@@ -67,7 +87,8 @@ project:
     url: https://www.edsbook.org
   issue:
     name: Standard
-#  thumbnail: images/thumbnail.png
+  thumbnail: images/thumbnail.png
+  doi: 10.5281/zenodo.17808328
   requirements:
     - .binder/install.R
   github: https://github.com/eds-book/2dd74dfa-d87d-442f-bea1-a19c8953f66e
@@ -79,9 +100,23 @@ project:
   license:
     content: CC-BY-4.0
     code: MIT
-  #date: 2025-XX-XX
+  date: 2025-12-08
   toc:
     - file: README.md
     - file: notebook.ipynb
+  exports:
+    - format: pdf
+      template: curvenote
+      article: notebook.ipynb
+      output: exports/notebook.pdf
+    - format: cff
+      type: software
+      version: v2025.12.1
+      license: MIT
+      license-url: https://opensource.org/license/MIT
+      identifiers:
+        - description: "Open review report for this notebook"
+          type: url
+          value: "https://github.com/eds-book/notebooks-reviews/issues/14"
 site:
   template: book-theme
