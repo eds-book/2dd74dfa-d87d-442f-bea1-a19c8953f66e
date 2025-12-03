@@ -32,14 +32,29 @@ project:
       affiliations:
         - cuahsi
   reviewers:
-    - id: TBA
-      name: TBA
-      orcid: TBA
-      github: TBA
+    - id: hkropp
+      name: Heather Kropp
+      orcid: 0000-0002-4258-3393
+      github: kroppheather
       roles:
         - Writing – review & editing
       affiliations:
-        - TBA
+        - hamilton
+    - id: hkropp
+      name: Nathan Quarderer
+      orcid: 0000-0001-6602-3174
+      github: nquarder
+      roles:
+        - Writing – review & editing
+      affiliations:
+        - colorado
+    - id: hkropp
+      name: Kimberlee Wong
+      github: kimberleewong
+      roles:
+        - Writing – review & editing
+      affiliations:
+        - cuahsi
   editors:
     - id: acoca
       name: Alejandro Coca-Castro
@@ -50,8 +65,13 @@ project:
       affiliations:
         - turing
   affiliations:
+    - id: colorado
+      name: University of Colorado – Boulder
+      department: Environmental Data Science Innovation and Impact Lab
     - id: cuahsi
       name: CUAHSI - Consortium of Universities for the Advancement of Hydrologic Science, Inc.
+    - id: hamilton
+      name: Hamilton College
     - id: turing
       name: The Alan Turing Institute
       department: Environment & Sustainability
