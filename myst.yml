@@ -40,7 +40,7 @@ project:
         - Writing – review & editing
       affiliations:
         - hamilton
-    - id: hkropp
+    - id: nquarderer
       name: Nathan Quarderer
       orcid: 0000-0001-6602-3174
       github: nquarder
@@ -48,7 +48,7 @@ project:
         - Writing – review & editing
       affiliations:
         - colorado
-    - id: hkropp
+    - id: kwong
       name: Kimberlee Wong
       github: kimberleewong
       roles:
