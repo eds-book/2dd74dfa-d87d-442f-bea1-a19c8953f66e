@@ -104,5 +104,19 @@ project:
   toc:
     - file: README.md
     - file: notebook.ipynb
+  exports:
+    - format: pdf
+      template: curvenote
+      article: notebook.ipynb
+      output: exports/notebook.pdf
+    - format: cff
+      type: software
+      version: v2025.12.0
+      license: MIT
+      license-url: https://opensource.org/license/MIT
+      identifiers:
+        - description: "Open review report for this notebook"
+          type: url
+          value: "https://github.com/eds-book/notebooks-reviews/issues/14"
 site:
   template: book-theme
