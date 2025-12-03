@@ -100,7 +100,7 @@ project:
   license:
     content: CC-BY-4.0
     code: MIT
-  #date: 2025-XX-XX
+  date: 2025-12-08
   toc:
     - file: README.md
     - file: notebook.ipynb
