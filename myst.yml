@@ -5,7 +5,7 @@ extends:
 project:
   id: 2dd74dfa-d87d-442f-bea1-a19c8953f66e
   title: Using a robust data pipelining tool in R to build a reproducible hurricane data visualization with multi-agency water data (Jupyter Notebook) published in the Environmental Data Science book
-  short_title: Reproducible hurricane data visualisation using targets (CUAHSI)
+  short_title: Reproducible hurricane data visualization using targets (CUAHSI)
   abstract: Notebook developed to demonstrate how use the `targets` R package to construct a reproducible data pipeline that integrates and analyzes data from diverse environmental sources to investigate flooding during Hurricane Harvey.
   authors:
     - id: abogan
